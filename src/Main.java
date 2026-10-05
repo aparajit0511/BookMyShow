@@ -1,9 +1,7 @@
-import bookmyshow.City;
-import bookmyshow.Screen;
-import bookmyshow.Show;
-import bookmyshow.User;
+import bookmyshow.*;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
@@ -13,6 +11,9 @@ public class Main {
 
         City city1 = new City("Bangalore","BLR100");
         City city2 = new City("Mumbai","MUM100");
+
+        Theater pvr = new Theater("PVR");
+        Theater inox = new Theater("Inox");
 
         Screen screen1 = new Screen("Screen1");
         Screen screen2 = new Screen("Screen2");
@@ -26,6 +27,20 @@ public class Main {
 
         User user1 = new User("Aparajit");
         User user2 = new User("Chatterjee");
+
+        BookMyShow bookmyshow = new BookMyShow();
+        bookmyshow.addCity(city1);
+        bookmyshow.addTheater("Bangalore",pvr);
+        bookmyshow.addTheater("Bangalore",inox);
+
+        String citycode = bookmyshow.fetchCitycode("Bangalore");
+
+      if(citycode != null){
+          ArrayList<Theater> theater = bookmyshow.fetchTheater(citycode);
+          System.out.println("List of Theaters"+ theater);
+
+          bookmyshow.searchMovie(pvr,"Dune");
+      }
 
     }
 }

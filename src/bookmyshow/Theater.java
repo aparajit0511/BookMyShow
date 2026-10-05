@@ -1,5 +1,7 @@
 package bookmyshow;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.UUID;
 
 public class Theater {
@@ -8,6 +10,8 @@ public class Theater {
     private String theaterId ;
 
     public Show show;
+
+    private HashMap<String, ArrayList<Show>> showTime = new HashMap<>();
 
     public Theater(String theaterName) {
         TheaterName = theaterName;
@@ -24,5 +28,9 @@ public class Theater {
 
     public void setTheaterName(String theaterName) {
         TheaterName = theaterName;
+    }
+
+    public void searchForMovie(Theater theater,String movieName){
+
     }
 }
